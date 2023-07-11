@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List</title>
+    <script src="./script.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container" id="container">
+      <button id="dark-mode-btn">Light/Dark Mode</button>
+      <h1 id="h1"></h1>
+      <div class="flex-container">
+        <div class="add-task-container">
+          <h2>Add a task</h2>
+          <input type="text" id="add-task-input" placeholder="e.g. Make bed" />
+          <button id="add-button">Add</button>
+        </div>
+        <div class="to-do-and-completed">
+          <div class="to-do-container">
+            <h2>To Do</h2>
+            <ul id="incomplete-ul"></ul>
+          </div>
+          <div class="done-container">
+            <h2>Completed</h2>
+            <ul id="complete-ul"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
