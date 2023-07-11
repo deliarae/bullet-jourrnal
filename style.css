@@ -1,24 +1,27 @@
  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 
 :root {
-    --text-color: rgb(227, 217, 205);
+    --dark-blue: #000031;
+    --light-blue: #7d7ddede;
+    --dark-blue-lighter: #1b1b63;
+    --blue-greyed-out: #3a3a49;
 }
 
 * {
     font-family: 'Montserrat', sans-serif;
-    color: var(--text-color);
+    color: var(--dark-blue);
 }
 
 body {
     margin: 0;
-    background-image: url(./backgroundimagee.jpg);
+    background-image: url(./background-image-2.jpg);
     background-size: cover;
 }
 #moon {
     width: 15px;
 }
 .dark-mode {
-    background-color: #63584f;
+    background-color: var(--dark-blue-lighter);
     background-image: none; 
     }
 
@@ -27,7 +30,7 @@ body {
 }
 
 .dark-mode button {
-    background-color: #474340;
+    background-color: var(--dark-blue-lighter);
 }
 
 .dark-mode input {
@@ -38,10 +41,10 @@ body {
 }
 
 .dark-mode .container {
-    background-color: #15141389;
+    background-color: var(--dark-blue);
 }
 .dark-mode .dark-mode-btn {
-    background-color: #44382f;
+    background-color: #a50b0b;
 }
  
 .container {
@@ -49,7 +52,8 @@ body {
     height: 90vh;
     margin: auto;
     margin-top: 10px;
-    background-color: #be8e6acf;
+    background-color: var(--light-blue);
+    
     padding: 10px;
     
 }
@@ -66,7 +70,7 @@ h1 {
 
 
 input[type=text] {
-    color: black;
+    color: var(--dark-blue);
     padding: 10px;
     border-radius: 20px;
     border: none;
@@ -76,7 +80,7 @@ button {
     padding: 10px;
     border-radius: 20px;
     border: none;
-    color: rgb(139, 94, 38);
+    color: var(--dark-blue);
 }
 button:hover {
     cursor: pointer;
@@ -97,17 +101,17 @@ input[type=checkbox]:hover {
 
 /* media queries down here */
 @media (max-width: 600px) {
-.input-container {
+/* .input-container {
         display: flex;
         justify-content: space-between;
-    }
+    } */
 input[type=text]{
         width: 70%;
     }
     h1 {
         font-size: 1.6rem;
     }
-    h2 {
+    h3 {
         font-size: 1.2rem;
     }
 }
@@ -121,21 +125,21 @@ input[type=text]{
     h1 {
         text-align: center;
     }
-    .add-task-container, .to-do-and-completed {
+    /* .add-task-container, .to-do-and-completed {
         width: 48%;
-    }
-}
+    }*/
+} 
 
 @media (min-width: 1000px) {
-    .to-do-and-completed {
+    /* .to-do-and-completed {
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
-    }
-    .to-do-container, .done-container {
+    } */
+    /* .to-do-container, .done-container {
         width: 50%;
     }
     .add-task-container {
         width: 30%;
-    }
+    } */
 }

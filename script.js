@@ -6,12 +6,12 @@
 //toggle light/dark switch
 let darkModeBtn = document.getElementById('dark-mode-btn')
 
+// On app load, get all tasks from localStorage
+window.onload = loadTasks;
 
 darkModeBtn.addEventListener('click', function changeColor(){
     let body = document.body
     body.classList.toggle("dark-mode");
- 
-  
 })
 
 //assigning variables
@@ -53,6 +53,57 @@ switch (weekday) {
 
 document.getElementById('h1').innerHTML += date + ' ' + month + ' ' + year
 
+
+
+function loadTasks() {
+
+    function append() {
+    incompleteUl.appendChild(listItemContainer)
+    listItemContainer.appendChild(listItem)
+    listItem.appendChild(listCheckbox)
+    listCheckbox.appendChild(listLabel)
+    listLabel.appendChild(deleteButton)
+    deleteButton.appendChild(binImage)
+}
+
+let listItemContainer = document.createElement('div')
+let listItem = document.createElement('li')
+let listCheckbox = document.createElement('input')
+listCheckbox.setAttribute("type", "checkbox")
+let listLabel = document.createElement('label')
+let deleteButton = document.createElement('button')
+let binImage = document.createElement('img')
+binImage.src = './bin2.png'
+
+deleteButton.style.backgroundColor = "transparent"
+deleteButton.style.padding = "0"
+binImage.style.width = "17px"
+listLabel.style.marginRight = "10px"
+
+let nodes = [listItemContainer, listItem, listCheckbox, listLabel, deleteButton]
+
+  // check if localStorage has any tasks
+  // if not then return
+//   if (localStorage.getItem("tasks") == null) return;
+
+  // Get the tasks from localStorage and convert it to an array
+  let tasks = Array.from(JSON.parse(localStorage.getItem("tasks")));
+  console.log(tasks)
+  // Loop through the tasks and add them to the list
+
+ 
+  n = 0
+  for (let i=0; i<tasks.length;i++) {
+        for ( let j=0; j<tasks[i].length;j++){ 
+            listLabel.innerHTML = tasks[i]
+            }
+        incompleteUl.appendChild(nodes[i])
+        n++
+    }
+};
+
+
+
 // add task to to do list
 let counter = 1;
 let date1 = new Date();
@@ -78,43 +129,31 @@ let nodes = [listItemContainer, listItem, listCheckbox, listLabel, deleteButton]
     for (let i=0; i<nodes.length; i++){
         incompleteUl.appendChild(nodes[i])
         listLabel.innerHTML = addTaskInput.value
-        let localStorageName = `item${counter}${milliseconds}`;
-        localStorage.setItem(`item${counter}${milliseconds}`, addTaskInput.value)
-        // listLabel.innerHTML = localStorage.getItem('item')
         }
-        counter++
+       
+        localStorage.setItem("tasks", JSON.stringify([...JSON.parse(localStorage.getItem("tasks") || "[]"), addTaskInput.value]));
         addTaskInput.value = ""
 
-
 // Get all items from local storage
-function getAllItemsFromLocalStorage() {
-  var items1 = [];
+// function getAllItemsFromLocalStorage() {
+//   var items1 = [];
 
-  for (var i = 0; i < localStorage.length; i++) {
-    var key = localStorage.key(i);
-    var value = localStorage.getItem(key);
-    items1.push({ key: key, value: value });
-  }
+//   for (var i = 0; i < localStorage.length; i++) {
+//     var key = localStorage.key(i);
+//     var value = localStorage.getItem(key);
+//     items1.push({ key: key, value: value });
+//   }
 
-  return items1;
-}
+//   return items1;
+// }
 
-// Usage example
-var allItems = getAllItemsFromLocalStorage();
-
-// Display the retrieved items
-// allItems.forEach(function (item) {
-//   console.log("Key:", item.key);
-//   console.log("Value:", item.value);
-  
-// });
 
 // move completed tasks between completed and incompleted UL
     listCheckbox.addEventListener('click', function tickOff(){
         if (listCheckbox.value = this.checked){
             for (let i=0; i<nodes.length; i++){
                 completeUl.appendChild(nodes[i])
-                listLabel.style.color = "rgb(139, 94, 38)"
+                listLabel.style.color = "var(--blue-greyed-out)"
                 listLabel.style.textDecorationLine = "line-through"
                 }
             } else {
@@ -141,27 +180,3 @@ var allItems = getAllItemsFromLocalStorage();
     addButton.click();
     }
 });
-
-
-
-
-
-
-// let storageItems = []
-// let k = 0
-
-// do {
-//             localStorage.setItem('item', addTaskInput.value)
-//             storageItems[k] = localStorage.getItem('item')
-//             k++
-//         }
-//         while (addTaskInput.value == true)
-
-
-
-// let storageItems = []
-//   for (k=0; k<=storageItems.length;k++){
-//             localStorage.setItem('item', addTaskInput.value)
-//             storageItems.push(k) = localStorage.getItem('item')
-//         }
-
