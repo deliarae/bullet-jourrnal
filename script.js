@@ -50,51 +50,93 @@ document.getElementById('h1').innerHTML += date + ' ' + month + ' ' + year
 
 
 function loadTasks() {
+    
+// let listItem = document.createElement('li')
+// let listCheckbox = document.createElement('input')
+// listCheckbox.setAttribute("type", "checkbox")
+// let listLabel = document.createElement('label')
+// let deleteButton = document.createElement('button')
+// let binImage = document.createElement('img')
+// binImage.src = './bin2.png'
+// deleteButton.appendChild(binImage)
+// deleteButton.style.backgroundColor = "transparent"
+// deleteButton.style.padding = "0"
+// binImage.style.width = "17px"
+// listLabel.style.marginRight = "10px"
+    
+//     let nodes = [listItem, listCheckbox, listLabel, deleteButton]
+    // let incompleteUl = document.getElementById('incomplete-ul')
 
-    function append() {
-    incompleteUl.appendChild(listItemContainer)
-    listItemContainer.appendChild(listItem)
-    listItem.appendChild(listCheckbox)
-    listCheckbox.appendChild(listLabel)
-    listLabel.appendChild(deleteButton)
-    deleteButton.appendChild(binImage)
+    const storedTasks = JSON.parse(localStorage.getItem('tasks'));
+    console.log(storedTasks)
+
+    
+    for (let i=0; i<storedTasks.length; i++) {
+
+
+        let listItemContainer = document.createElement('div')
+        let listItem = document.createElement('li')
+        let listCheckbox = document.createElement('input')
+        listCheckbox.setAttribute("type", "checkbox")
+        let listLabel = document.createElement('label')
+        let deleteButton = document.createElement('button')
+        let binImage = document.createElement('img')
+        binImage.src = './bin2.png'
+        deleteButton.appendChild(binImage)
+        deleteButton.style.backgroundColor = "transparent"
+        deleteButton.style.padding = "0"
+        binImage.style.width = "17px"
+        listLabel.style.marginRight = "10px"
+
+        incompleteUl.appendChild(listItem)
+        listItem.appendChild(listCheckbox)
+        listCheckbox.appendChild(listLabel)
+        listLabel.appendChild(deleteButton)
+
+        // let p = document.createElement('p')
+        // incompleteUl.appendChild(p)
+        listLabel.innerHTML = storedTasks[i]
+        let p = document.createElement('label')
+        incompleteUl.appendChild(p)
+        p.innerHTML = storedTasks[i]
+        p.appendChild(deleteButton)
+        
+
+
+}
+    
+    
 }
 
-let listItemContainer = document.createElement('div')
-let listItem = document.createElement('li')
-let listCheckbox = document.createElement('input')
-listCheckbox.setAttribute("type", "checkbox")
-let listLabel = document.createElement('label')
-let deleteButton = document.createElement('button')
-let binImage = document.createElement('img')
-binImage.src = './bin2.png'
 
-deleteButton.style.backgroundColor = "transparent"
-deleteButton.style.padding = "0"
-binImage.style.width = "17px"
-listLabel.style.marginRight = "10px"
 
-let nodes = [listItemContainer, listItem, listCheckbox, listLabel, deleteButton]
+// deleteButton.style.backgroundColor = "transparent"
+// deleteButton.style.padding = "0"
+// binImage.style.width = "17px"
+// listLabel.style.marginRight = "10px"
 
-  // check if localStorage has any tasks
-  // if not then return
-//   if (localStorage.getItem("tasks") == null) return;
+// let nodes = [listItemContainer, listItem, listCheckbox, listLabel, deleteButton]
 
-  // Get the tasks from localStorage and convert it to an array
-  let tasks = Array.from(JSON.parse(localStorage.getItem("tasks")));
-  console.log(tasks)
-  // Loop through the tasks and add them to the list
+//   // check if localStorage has any tasks
+//   // if not then return
+// //   if (localStorage.getItem("tasks") == null) return;
+
+//   // Get the tasks from localStorage and convert it to an array
+//   let tasks = Array.from(JSON.parse(localStorage.getItem("tasks")));
+//   console.log(tasks)
+//   // Loop through the tasks and add them to the list
 
  
-  n = 0
-  for (let i=0; i<tasks.length;i++) {
-        for ( let j=0; j<tasks[i].length;j++){ 
-            listLabel.innerHTML = tasks[i]
-            }
-        incompleteUl.appendChild(nodes[i])
-        n++
-    }
-};
+//   n = 0
+//   for (let i=0; i<tasks.length;i++) {
+//         for ( let j=0; j<tasks[i].length;j++){ 
+//             listLabel.innerHTML = tasks[i]
+//             }
+//         incompleteUl.appendChild(nodes[i])
+//         n++
+
+//     }
+// };
 
 
 
