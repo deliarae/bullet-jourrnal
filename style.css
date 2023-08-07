@@ -17,35 +17,7 @@ body {
     background-image: url(./background-image-2.jpg);
     background-size: cover;
 }
-#moon {
-    width: 15px;
-}
-.dark-mode {
-    background-color: var(--dark-blue-lighter);
-    background-image: none; 
-    }
 
-.dark-mode * {
-    color: rgb(235, 224, 211);
-}
-
-.dark-mode button {
-    background-color: var(--dark-blue-lighter);
-}
-
-.dark-mode input {
-    background-color: rgb(239, 228, 214);
-}
-.dark-mode li {
-    color: rgb(239, 228, 214);
-}
-
-.dark-mode .container {
-    background-color: var(--dark-blue);
-}
-.dark-mode .dark-mode-btn {
-    background-color: #a50b0b;
-}
  
 .container {
     width: 80vw;

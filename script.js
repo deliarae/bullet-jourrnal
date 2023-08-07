@@ -3,16 +3,10 @@
 // checkbox style
 // maybe add drag and drop
 
-//toggle light/dark switch
-let darkModeBtn = document.getElementById('dark-mode-btn')
 
 // On app load, get all tasks from localStorage
 window.onload = loadTasks;
 
-darkModeBtn.addEventListener('click', function changeColor(){
-    let body = document.body
-    body.classList.toggle("dark-mode");
-})
 
 //assigning variables
 let addTaskInput = document.getElementById('add-task-input')
