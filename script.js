@@ -1,6 +1,5 @@
 // TO DO
 // local storage --> it overwrites item each time
-// checkbox style
 // maybe add drag and drop
 
 
@@ -51,22 +50,6 @@ document.getElementById('h1').innerHTML += date + ' ' + month + ' ' + year
 
 function loadTasks() {
     
-// let listItem = document.createElement('li')
-// let listCheckbox = document.createElement('input')
-// listCheckbox.setAttribute("type", "checkbox")
-// let listLabel = document.createElement('label')
-// let deleteButton = document.createElement('button')
-// let binImage = document.createElement('img')
-// binImage.src = './bin2.png'
-// deleteButton.appendChild(binImage)
-// deleteButton.style.backgroundColor = "transparent"
-// deleteButton.style.padding = "0"
-// binImage.style.width = "17px"
-// listLabel.style.marginRight = "10px"
-    
-//     let nodes = [listItem, listCheckbox, listLabel, deleteButton]
-    // let incompleteUl = document.getElementById('incomplete-ul')
-
     const storedTasks = JSON.parse(localStorage.getItem('tasks'));
     console.log(storedTasks)
 
@@ -103,40 +86,11 @@ function loadTasks() {
         
 
 
-}
+    }
     
     
 }
 
-
-
-// deleteButton.style.backgroundColor = "transparent"
-// deleteButton.style.padding = "0"
-// binImage.style.width = "17px"
-// listLabel.style.marginRight = "10px"
-
-// let nodes = [listItemContainer, listItem, listCheckbox, listLabel, deleteButton]
-
-//   // check if localStorage has any tasks
-//   // if not then return
-// //   if (localStorage.getItem("tasks") == null) return;
-
-//   // Get the tasks from localStorage and convert it to an array
-//   let tasks = Array.from(JSON.parse(localStorage.getItem("tasks")));
-//   console.log(tasks)
-//   // Loop through the tasks and add them to the list
-
- 
-//   n = 0
-//   for (let i=0; i<tasks.length;i++) {
-//         for ( let j=0; j<tasks[i].length;j++){ 
-//             listLabel.innerHTML = tasks[i]
-//             }
-//         incompleteUl.appendChild(nodes[i])
-//         n++
-
-//     }
-// };
 
 
 
@@ -170,18 +124,6 @@ let nodes = [listItemContainer, listItem, listCheckbox, listLabel, deleteButton]
         localStorage.setItem("tasks", JSON.stringify([...JSON.parse(localStorage.getItem("tasks") || "[]"), addTaskInput.value]));
         addTaskInput.value = ""
 
-// Get all items from local storage
-// function getAllItemsFromLocalStorage() {
-//   var items1 = [];
-
-//   for (var i = 0; i < localStorage.length; i++) {
-//     var key = localStorage.key(i);
-//     var value = localStorage.getItem(key);
-//     items1.push({ key: key, value: value });
-//   }
-
-//   return items1;
-// }
 
 
 // move completed tasks between completed and incompleted UL
