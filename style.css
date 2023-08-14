@@ -1,10 +1,10 @@
  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 
 :root {
-    --dark-blue: #000031;
+    --dark-blue: #ffffffbd;
     --light-blue: #7d7ddede;
     --dark-blue-lighter: #1b1b63;
-    --blue-greyed-out: #3a3a49;
+    --blue-greyed-out: #ffffff72;
 }
 
 * {
@@ -14,20 +14,24 @@
 
 body {
     margin: 0;
-    background-image: url(./background-image-2.jpg);
-    background-size: cover;
-}
+    display: flex;
 
+}
+.flex {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
  
 .container {
-    width: 80vw;
-    height: 90vh;
+    width: 50vw;
+    height: 70vh;
     margin: auto;
-    margin-top: 10px;
-    background-color: var(--light-blue);
-    
-    padding: 10px;
-    
+    /* margin-top: 10px; */
+    background-color: #ffffff72;
+    border-radius: 100px;
+    padding: 50px;
+  
 }
 
 
@@ -52,7 +56,7 @@ button {
     padding: 10px;
     border-radius: 20px;
     border: none;
-    color: var(--dark-blue);
+    color: rgba(0, 0, 0, 0.815);
 }
 button:hover {
     cursor: pointer;
@@ -69,7 +73,10 @@ ul li {
 input[type=checkbox]:hover {
     cursor: pointer;
 }
-
+.flex-container {
+    display: flex;
+    flex-direction: row;
+}
 
 /* media queries down here */
 @media (max-width: 600px) {
@@ -114,4 +121,22 @@ input[type=text]{
     .add-task-container {
         width: 30%;
     } */
+}
+
+
+
+body {
+    background: linear-gradient(to right, #1e5799 0%, #8c2ce0 19%, #dd2c2f 40%, #db6e2b 60%, #e02cbf 83%, #1e5799 100%);
+    background-size: 10000px;
+    animation: bg 15s linear infinite;
+}
+
+@keyframes bg {
+    0% {
+        background-position-x: 0;
+    }
+
+    100% {
+        background-position-x: 10000px;
+    }
 }
