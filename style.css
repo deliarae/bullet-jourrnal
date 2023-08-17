@@ -46,7 +46,7 @@ h1 {
 
 
 input[type=text] {
-    color: var(--dark-blue);
+    color: rgba(0, 0, 0, 0.815);
     padding: 10px;
     border-radius: 20px;
     border: none;
@@ -108,7 +108,12 @@ input[type=text]{
         width: 48%;
     }*/
 } 
-
+@media (max-width: 600px) {
+    .flex-container  {
+        display: flex;
+        flex-direction: column;
+    }
+}
 @media (min-width: 1000px) {
     /* .to-do-and-completed {
         display: flex;

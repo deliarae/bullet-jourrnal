@@ -53,10 +53,7 @@ function loadTasks() {
     const storedTasks = JSON.parse(localStorage.getItem('tasks'));
     console.log(storedTasks)
 
-    
-    for (let i=0; i<storedTasks.length; i++) {
-
-
+    for (let i=0; i<storedTasks.length; i++){
         let listItemContainer = document.createElement('div')
         let listItem = document.createElement('li')
         let listCheckbox = document.createElement('input')
@@ -71,24 +68,18 @@ function loadTasks() {
         binImage.style.width = "17px"
         listLabel.style.marginRight = "10px"
 
-        incompleteUl.appendChild(listItem)
-        listItem.appendChild(listCheckbox)
-        listCheckbox.appendChild(listLabel)
-        listLabel.appendChild(deleteButton)
 
-        // let p = document.createElement('p')
-        // incompleteUl.appendChild(p)
-        listLabel.innerHTML = storedTasks[i]
-        let p = document.createElement('label')
-        incompleteUl.appendChild(p)
-        p.innerHTML = storedTasks[i]
-        p.appendChild(deleteButton)
+        let nodes = [listItemContainer, listItem, listCheckbox, listLabel, deleteButton]
+
+        for (let i=0; i<storedTasks.length; i++){
+            for (let j=0; j<storedTasks[i].length; j++) {
+                incompleteUl.appendChild(nodes[i])
+                listLabel.innerHTML = storedTasks[i]
+                console.log(listItemContainer)
+            }
         
-
-
-    }
-    
-    
+        }   
+    }  
 }
 
 
